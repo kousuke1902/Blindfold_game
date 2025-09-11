@@ -136,6 +136,15 @@
     <Filter Include="Resource Files\engine\font\min">
       <UniqueIdentifier>{1b103960-f11a-4515-b4f1-f59333ce00d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Characters">
+      <UniqueIdentifier>{fc446166-d853-4829-bb73-5ae85efde0cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Characters\Player">
+      <UniqueIdentifier>{542f26b4-f039-4132-8423-ddebe53118cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems">
+      <UniqueIdentifier>{e679f493-e8e7-4233-8feb-1c90b5868c51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -808,6 +817,15 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="character.hpp">
+      <Filter>Header Files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerManager.hpp">
+      <Filter>Header Files\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="DeltaTimeManager.hpp">
+      <Filter>Header Files\Systems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

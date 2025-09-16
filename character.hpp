@@ -8,12 +8,14 @@ class Character
 
 protected:
 
-	Vec2 graph; // 座標
+	Point pos; // 盤上座標
 	int direction; // 向き
-	int helth; // 体力
+	int health; // 体力
 	int deffence; // 防御力
 	double move_interval; // 移動間隔
+	double move_timer; // 移動時間測定
 	double attack_interval; // 攻撃間隔
+	double attack_timer; // 攻撃時間測定
 	int live_flag; // 生存フラグ
 	String id; // ID
 	Array<String> tags; // タグ
@@ -24,17 +26,23 @@ public:
 
 
 	// 描画
-	int Draw()
+	int Draw(Vec2 origin)
 	{
-		texture.drawAt(graph).rotate90(direction);
+		// 実際の描画は盤上の位置によってでずれる
+		texture.drawAt(origin + pos).rotate90(direction);
 
 		return 0;
 	}
 
 	// 移動
-	int Move(double x, double y)
+	int Move(int x, int y)
 	{
-		graph.moveBy(x, y);
+		// 移動が可能な場合のみ
+		if (move_timer <= 0)
+		{
+			pos.moveBy(x, y);
+			move_timer = move_interval;
+		}
 
 		return 0;
 	}
@@ -57,15 +65,38 @@ public:
 		return 0;
 	}
 
-	// 
+	// 攻撃
+	virtual int Attack()
+	{
+
+		return 0;
+	}
+
+	// 体力計算
+	int Damage(int x)
+	{
+		// 防御力の分，ダメージは減る
+		int damage = deffence - x;
+
+		// ダメージが0未満になることはない
+		if (damage < 0)damage = 0;
+
+		health -= damage;
+
+		// 体力が0以下になると活動できない
+		if (health <= 0)live_flag = 0;
+
+		return 0;
+	}
+
 
 	// 随時処理
 	int Update()
 	{
 		double deltatime = DeltaTimeManager::getInstance().ShowDeltaTime();
 
-		if (move_interval > 0) move_interval -= deltatime;
-		if (attack_interval > 0) attack_interval -= deltatime;
+		if (move_timer > 0) move_timer -= deltatime;
+		if (attack_timer > 0) attack_timer -= deltatime;
 
 		return 0;
 	}

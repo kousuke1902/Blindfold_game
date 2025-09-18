@@ -13,9 +13,9 @@ protected:
 	int health; // 体力
 	int deffence; // 防御力
 	double move_interval; // 移動間隔
-	double move_timer; // 移動時間測定
+	double move_timer; // 経過移動間隔
 	double attack_interval; // 攻撃間隔
-	double attack_timer; // 攻撃時間測定
+	double attack_timer; // 経過攻撃間隔
 	int live_flag; // 生存フラグ
 	String id; // ID
 	Array<String> tags; // タグ
@@ -23,6 +23,23 @@ protected:
 
 public:
 
+
+	Character()
+	{
+		pos = Point(0, 0);
+		direction = 0;
+		health = 10;
+		deffence = 1;
+		move_interval = 0.5;
+		move_timer = 0.0;
+		attack_interval = 1.0;
+		attack_timer = 0.0;
+		live_flag = 1;
+		id = U"test";
+		tags << U"test";
+
+
+	}
 
 
 	// 描画
@@ -99,6 +116,72 @@ public:
 		if (attack_timer > 0) attack_timer -= deltatime;
 
 		return 0;
+	}
+
+	// 座標確認
+	Point ShowPos()
+	{
+		return pos;
+	}
+
+	// 向き確認(数字)
+	int ShowDirection()
+	{
+		return direction;
+	}
+
+	// 体力確認
+	int ShowHealth()
+	{
+		return health;
+	}
+
+	// 防御確認
+	int ShowDeffence()
+	{
+		return deffence;
+	}
+
+	// 移動間隔確認
+	double ShowMoveInterval()
+	{
+		return move_interval;
+	}
+
+	// 経過移動間隔確認
+	double ShowMoveTimer()
+	{
+		return move_timer;
+	}
+
+	// 攻撃間隔確認
+	double ShowAttackInterval()
+	{
+		return attack_interval;
+	}
+
+	// 経過攻撃間隔確認
+	double ShowAttackTimer()
+	{
+		return attack_timer;
+	}
+
+	// 生存フラグ確認
+	int ShowLiveFlag()
+	{
+		return live_flag;
+	}
+
+	// ID確認
+	String ShowID()
+	{
+		return id;
+	}
+
+	// タグ確認
+	Array<String> ShowTags()
+	{
+		return tags;
 	}
 
 };

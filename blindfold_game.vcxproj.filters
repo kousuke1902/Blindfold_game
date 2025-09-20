@@ -145,6 +145,12 @@
     <Filter Include="Header Files\Systems">
       <UniqueIdentifier>{e679f493-e8e7-4233-8feb-1c90b5868c51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Bullets">
+      <UniqueIdentifier>{3af98dc6-7e82-420c-84df-77aeb0704113}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Characters\Enemys">
+      <UniqueIdentifier>{e9af4445-642a-4555-af15-99b0ccdb7e9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -821,11 +827,20 @@
     <ClInclude Include="character.hpp">
       <Filter>Header Files\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerManager.hpp">
-      <Filter>Header Files\Characters\Player</Filter>
-    </ClInclude>
     <ClInclude Include="DeltaTimeManager.hpp">
       <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.hpp">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="lid.hpp">
+      <Filter>Header Files\Characters\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterManager.hpp">
+      <Filter>Header Files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.hpp">
+      <Filter>Header Files\Bullets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

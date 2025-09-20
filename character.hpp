@@ -21,35 +21,6 @@ protected:
 	Array<String> tags; // タグ
 	Texture texture; // キャラクター画像
 
-public:
-
-
-	Character()
-	{
-		pos = Point(0, 0);
-		direction = 0;
-		health = 10;
-		deffence = 1;
-		move_interval = 0.5;
-		move_timer = 0.0;
-		attack_interval = 1.0;
-		attack_timer = 0.0;
-		live_flag = 1;
-		id = U"test";
-		tags << U"test";
-
-
-	}
-
-
-	// 描画
-	int Draw(Vec2 origin)
-	{
-		// 実際の描画は盤上の位置によってでずれる
-		texture.drawAt(origin + pos).rotate90(direction);
-
-		return 0;
-	}
 
 	// 移動
 	int Move(int x, int y)
@@ -67,17 +38,16 @@ public:
 	// 右回転
 	int RotateRight()
 	{
-		if (direction < 4) direction++;
-		else if (direction == 4) direction = 0;
-
+		if (direction < 3)	direction++;
+		else if (direction == 3) direction = 0;
 		return 0;
 	}
 
 	// 左回転
 	int RotateLeft()
 	{
-		if (direction > 0) direction--;
-		else if (direction == 0) direction = 4;
+		if (direction > 0)	direction--;
+		else if (direction == 0) direction = 3;
 
 		return 0;
 	}
@@ -85,6 +55,65 @@ public:
 	// 攻撃
 	virtual int Attack()
 	{
+
+		return 0;
+	}
+
+	// 随時処理
+	int Update()
+	{
+		double deltatime = DeltaTimeManager::getInstance().ShowDeltaTime();
+
+		if (move_timer > 0) move_timer -= deltatime;
+		if (attack_timer > 0) attack_timer -= deltatime;
+
+
+		return 0;
+	}
+
+public:
+
+	// コンストラクタ
+	Character()
+	{
+		pos = Point(0, 0);
+		direction = 0;
+		health = 10;
+		deffence = 1;
+		move_interval = 0.5;
+		move_timer = 0.0;
+		attack_interval = 1.0;
+		attack_timer = 0.0;
+		live_flag = 1;
+		id = U"test";
+		tags << U"test";
+		texture = Texture(U"img/test.png");
+
+	}
+
+	// 描画
+	int Draw(Vec2 origin)
+	{
+		// 実際の描画は盤上の位置によってでずれる
+		texture.rotated(direction * 90_deg).drawAt(origin + pos);
+
+		return 0;
+	}
+
+	// 描画
+	int Draw(double x, double y)
+	{
+		// 実際の描画は盤上の位置によってでずれる
+		texture.rotated(direction * 90_deg).drawAt(x + pos.x, y + pos.y);
+
+		return 0;
+	}
+
+	// 判断処理
+	virtual int Action()
+	{
+
+		Update();
 
 		return 0;
 	}
@@ -102,18 +131,6 @@ public:
 
 		// 体力が0以下になると活動できない
 		if (health <= 0)live_flag = 0;
-
-		return 0;
-	}
-
-
-	// 随時処理
-	int Update()
-	{
-		double deltatime = DeltaTimeManager::getInstance().ShowDeltaTime();
-
-		if (move_timer > 0) move_timer -= deltatime;
-		if (attack_timer > 0) attack_timer -= deltatime;
 
 		return 0;
 	}

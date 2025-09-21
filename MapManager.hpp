@@ -1,12 +1,15 @@
 ﻿#pragma once
-#include <Siv3D.hpp>
+#include "map_cell.hpp"
 
+// マップを構成するマスの制御クラス
 class MapManager
 {
 private:
 
 	MapManager() = default; // コンストラクタ
 	~MapManager() = default; // デストラクタ
+
+	Grid<MapCell*> cells; // マスの集合
 
 public:
 

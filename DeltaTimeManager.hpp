@@ -35,7 +35,7 @@ public:
 	}
 
 	// 1フレーム間の差分時間参照
-	double ShowDeltaTime()
+	double ShowDeltaTime() const
 	{
 		return deltatime;
 	}

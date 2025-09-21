@@ -1,6 +1,6 @@
 ﻿#include <Siv3D.hpp> // Siv3D v0.6.16
 #include "DeltaTimeManager.hpp"
-#include "lid.hpp"
+#include "map_cell.hpp"
 
 void Main()
 {
@@ -9,15 +9,12 @@ void Main()
 
 	DeltaTimeManager& deltatime = DeltaTimeManager::getInstance();
 
-	Lid lid(Point(0, 0), 1);
 
 	while (System::Update())
 	{
 
 		deltatime.GetDeltaTime();
 
-		lid.Draw(400.0, 300.0);
-		lid.Action();
-
+	
 	}
 }

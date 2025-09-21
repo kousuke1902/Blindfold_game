@@ -329,9 +329,15 @@
     <ClInclude Include="character.hpp" />
     <ClInclude Include="CharacterManager.hpp" />
     <ClInclude Include="DeltaTimeManager.hpp" />
+    <ClInclude Include="GamePlay.hpp" />
+    <ClInclude Include="IngameCharacter.hpp" />
     <ClInclude Include="lid.hpp" />
+    <ClInclude Include="map_cell.hpp" />
     <ClInclude Include="MapManager.hpp" />
+    <ClInclude Include="scene_common.hpp" />
+    <ClInclude Include="StageSelect.hpp" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Title.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App\example\obj\blacksmith.obj">

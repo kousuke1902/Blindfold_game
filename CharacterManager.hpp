@@ -1,12 +1,15 @@
 ﻿#pragma once
-#include <Siv3D.hpp>
+#include "IngameCharacter.hpp"
 
+// 全てのキャラクターの管理クラス
 class CharacterManager
 {
 private:
 
 	CharacterManager() = default; // コンストラクタ
 	~CharacterManager() = default; // デストラクタ
+
+	Array<Character*> characters;
 
 public:
 

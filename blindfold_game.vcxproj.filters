@@ -145,11 +145,17 @@
     <Filter Include="Header Files\Systems">
       <UniqueIdentifier>{e679f493-e8e7-4233-8feb-1c90b5868c51}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Bullets">
-      <UniqueIdentifier>{3af98dc6-7e82-420c-84df-77aeb0704113}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Characters\Enemys">
       <UniqueIdentifier>{e9af4445-642a-4555-af15-99b0ccdb7e9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems\Map">
+      <UniqueIdentifier>{27e43490-7a62-44c9-ac41-c076f3603b58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{9283a5a8-8a4d-4436-be8f-4f00ec3788b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Bullets">
+      <UniqueIdentifier>{3af98dc6-7e82-420c-84df-77aeb0704113}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -830,9 +836,6 @@
     <ClInclude Include="DeltaTimeManager.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="MapManager.hpp">
-      <Filter>Header Files\Systems</Filter>
-    </ClInclude>
     <ClInclude Include="lid.hpp">
       <Filter>Header Files\Characters\Player</Filter>
     </ClInclude>
@@ -841,6 +844,27 @@
     </ClInclude>
     <ClInclude Include="BulletManager.hpp">
       <Filter>Header Files\Bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.hpp">
+      <Filter>Header Files\Systems\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="map_cell.hpp">
+      <Filter>Header Files\Systems\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelect.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlay.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_common.hpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IngameCharacter.hpp">
+      <Filter>Header Files\Characters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "character.hpp"
 
+// プレイヤーキャラクターの制御クラス
 class Lid : public Character
 {
 

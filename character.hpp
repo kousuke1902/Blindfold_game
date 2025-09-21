@@ -136,67 +136,67 @@ public:
 	}
 
 	// 座標確認
-	Point ShowPos()
+	Point ShowPos() const
 	{
 		return pos;
 	}
 
 	// 向き確認(数字)
-	int ShowDirection()
+	int ShowDirection() const
 	{
 		return direction;
 	}
 
 	// 体力確認
-	int ShowHealth()
+	int ShowHealth() const
 	{
 		return health;
 	}
 
 	// 防御確認
-	int ShowDeffence()
+	int ShowDeffence() const
 	{
 		return deffence;
 	}
 
 	// 移動間隔確認
-	double ShowMoveInterval()
+	double ShowMoveInterval() const
 	{
 		return move_interval;
 	}
 
 	// 経過移動間隔確認
-	double ShowMoveTimer()
+	double ShowMoveTimer() const
 	{
 		return move_timer;
 	}
 
 	// 攻撃間隔確認
-	double ShowAttackInterval()
+	double ShowAttackInterval() const
 	{
 		return attack_interval;
 	}
 
 	// 経過攻撃間隔確認
-	double ShowAttackTimer()
+	double ShowAttackTimer() const
 	{
 		return attack_timer;
 	}
 
 	// 生存フラグ確認
-	int ShowLiveFlag()
+	int ShowLiveFlag() const
 	{
 		return live_flag;
 	}
 
 	// ID確認
-	String ShowID()
+	String ShowID() const
 	{
 		return id;
 	}
 
 	// タグ確認
-	Array<String> ShowTags()
+	Array<String> ShowTags() const
 	{
 		return tags;
 	}

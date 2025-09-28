@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "IngameCharacter.hpp"
 
+
 // 全てのキャラクターの管理クラス
 class CharacterManager
 {
@@ -24,5 +25,60 @@ public:
 		static CharacterManager inst; // プライベートなコンストラクタ
 		return inst;
 	}
+
+	// キャラクター追加
+	int AddCharacter(Character* add_character)
+	{
+		characters << add_character;
+
+		return 0;
+	}
+
+	// 随時処理
+	int Update()
+	{
+		// 機能している全てのキャラクター
+		for (auto it = characters.begin(); it != characters.end();)
+		{
+			Character* character = *it;
+
+			// 生存状態の確認
+			if (character->ShowLiveFlag() == -1)
+			{
+				// 削除処理
+				delete character;
+				it = characters.erase(it);
+
+			}
+
+			else
+			{
+				// 判断，行動
+				character->Action();
+
+			}
+
+			++it;
+
+		}
+
+	}
+
+	// 描画
+	int Draw(Vec2 origin)
+	{
+		// 機能している全てのキャラクター
+		for (auto it = characters.begin(); it != characters.end();)
+		{
+			Character* character = *it;
+
+			character->Draw(origin);
+
+			++it;
+
+		}
+
+	}
+
 
 };

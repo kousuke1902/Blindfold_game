@@ -1,3 +1,2 @@
-﻿#pragma once
-#include "character.hpp"
+﻿#include "character.hpp"
 #include "lid.hpp"

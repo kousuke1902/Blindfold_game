@@ -836,9 +836,6 @@
     <ClInclude Include="DeltaTimeManager.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="lid.hpp">
-      <Filter>Header Files\Characters\Player</Filter>
-    </ClInclude>
     <ClInclude Include="CharacterManager.hpp">
       <Filter>Header Files\Characters</Filter>
     </ClInclude>
@@ -865,6 +862,9 @@
     </ClInclude>
     <ClInclude Include="IngameCharacter.hpp">
       <Filter>Header Files\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="spy.hpp">
+      <Filter>Header Files\Characters\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

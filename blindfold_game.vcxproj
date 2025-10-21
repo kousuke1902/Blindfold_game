@@ -331,10 +331,10 @@
     <ClInclude Include="DeltaTimeManager.hpp" />
     <ClInclude Include="GamePlay.hpp" />
     <ClInclude Include="IngameCharacter.hpp" />
-    <ClInclude Include="lid.hpp" />
     <ClInclude Include="map_cell.hpp" />
     <ClInclude Include="MapManager.hpp" />
     <ClInclude Include="scene_common.hpp" />
+    <ClInclude Include="spy.hpp" />
     <ClInclude Include="StageSelect.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.hpp" />

@@ -53,8 +53,8 @@ public:
 
 			else
 			{
-				// 判断，行動
-				character->Action();
+				// 生存していれば活動
+				character->Update();
 
 			}
 

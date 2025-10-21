@@ -8,13 +8,13 @@ void Main()
 	Scene::SetBackground(ColorF{ 0.6, 0.8, 0.7 });
 
 	DeltaTimeManager& deltatime = DeltaTimeManager::getInstance();
-
+	
 
 	while (System::Update())
 	{
 
 		deltatime.GetDeltaTime();
+		
 
-	
 	}
 }

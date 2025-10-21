@@ -8,29 +8,34 @@ class Character
 
 protected:
 
-	Point pos; // 盤上座標
+	Vec2 pos; // 座標
 	int direction; // 向き
+	double speed; // 移動速度
 	int health; // 体力
 	int deffence; // 防御力
-	double move_interval; // 移動間隔
-	double move_timer; // 経過移動間隔
 	double attack_interval; // 攻撃間隔
 	double attack_timer; // 経過攻撃間隔
 	int live_flag; // 生存フラグ
+	bool open_flag; // 名前開示フラグ
+	String name; // 名前
 	String id; // ID
-	Array<String> tags; // タグ
 	Texture texture; // キャラクター画像
-
+	Array<String> tags; // タグ
+	Array<RectF> hitbox; // 当たり判定
+	double deltatime = DeltaTimeManager::getInstance().ShowDeltaTime(); // 差分時間
 
 	// 移動
-	int Move(int x, int y)
+	int Move(double x, double y)
 	{
-		// 移動が可能な場合のみ
-		if (move_timer <= 0)
-		{
-			pos.moveBy(x, y);
-			move_timer = move_interval;
-		}
+		pos.moveBy(x * speed * deltatime, y * speed * deltatime);
+
+		return 0;
+	}
+
+	// 移動
+	int Move(Vec2 vector)
+	{
+		pos.moveBy(vector * speed * deltatime);
 
 		return 0;
 	}
@@ -59,52 +64,10 @@ protected:
 		return 0;
 	}
 
-	// 随時処理
-	int Update()
+	// 時間処理
+	int TimeProcessing()
 	{
-		double deltatime = DeltaTimeManager::getInstance().ShowDeltaTime();
-
-		if (move_timer > 0) move_timer -= deltatime;
 		if (attack_timer > 0) attack_timer -= deltatime;
-
-
-		return 0;
-	}
-
-public:
-
-	// コンストラクタ
-	Character()
-	{
-		pos = Point(0, 0);
-		direction = 0;
-		health = 10;
-		deffence = 1;
-		move_interval = 0.5;
-		move_timer = 0.0;
-		attack_interval = 1.0;
-		attack_timer = 0.0;
-		live_flag = 1;
-		id = U"test";
-		tags << U"test";
-		texture = Texture(U"img/test.png");
-
-	}
-
-	// 描画
-	int Draw(Vec2 origin)
-	{
-		// 実際の描画は盤上の位置によってでずれる
-		texture.rotated(direction * 90_deg).drawAt(origin + pos);
-
-		return 0;
-	}
-
-	// 描画
-	int Draw(double x, double y)
-	{
-		// 実際の描画は盤上の位置によってでずれる
-		texture.rotated(direction * 90_deg).drawAt(x + pos.x, y + pos.y);
 
 		return 0;
 	}
@@ -113,7 +76,59 @@ public:
 	virtual int Action()
 	{
 
-		Update();
+		return 0;
+	}
+
+
+public:
+
+	// コンストラクタ
+	Character()
+	{
+		pos = Vec2 (0.0, 0.0);
+		speed = 100.0;
+		direction = 0;
+		health = 10;
+		deffence = 1;
+		attack_interval = 1.0;
+		attack_timer = 0.0;
+		live_flag = 1;
+		open_flag = false;
+		name = U"TEST";
+		id = U"test";
+		tags << U"test";
+		texture = Texture(U"img/test.png");
+
+
+	}
+
+	// 描画
+	int Draw(Vec2 origin)
+	{
+		// 描画はステージ位置と合わせる
+	//	texture.rotated(direction * 90_deg).drawAt(origin + pos);
+	//	texture.rotated(direction * 90_deg).drawAt(pos);
+		
+
+		return 0;
+	}
+
+	// 描画
+	int Draw(double x, double y)
+	{
+		// 描画はステージ位置と合わせる
+	//	texture.rotated(direction * 90_deg).drawAt(x + pos.x, y + pos.y);
+	//	texture.rotated(direction * 90_deg).drawAt(pos);
+
+
+		return 0;
+	}
+
+	// 随時処理
+	int Update()
+	{
+		TimeProcessing();
+		Action();
 
 		return 0;
 	}
@@ -136,7 +151,7 @@ public:
 	}
 
 	// 座標確認
-	Point ShowPos() const
+	Vec2 ShowPos() const
 	{
 		return pos;
 	}
@@ -145,6 +160,12 @@ public:
 	int ShowDirection() const
 	{
 		return direction;
+	}
+
+	// 移動速度確認
+	double ShowSpeed() const
+	{
+		return speed;
 	}
 
 	// 体力確認
@@ -157,18 +178,6 @@ public:
 	int ShowDeffence() const
 	{
 		return deffence;
-	}
-
-	// 移動間隔確認
-	double ShowMoveInterval() const
-	{
-		return move_interval;
-	}
-
-	// 経過移動間隔確認
-	double ShowMoveTimer() const
-	{
-		return move_timer;
 	}
 
 	// 攻撃間隔確認
@@ -187,6 +196,12 @@ public:
 	int ShowLiveFlag() const
 	{
 		return live_flag;
+	}
+
+	// 名前開示フラグ確認
+	bool ShowOpenFlag() const
+	{
+		return open_flag;
 	}
 
 	// ID確認
